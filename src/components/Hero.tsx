@@ -4,7 +4,19 @@ import { motion } from "framer-motion";
 export const Hero = () => {
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden">
-      <div className="container mx-auto px-4">
+      {/* Giant background text */}
+      <div 
+        className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none"
+        style={{
+          transform: "translateY(calc(var(--scroll) * 0.5))",
+        }}
+      >
+        <span className="text-[20vw] font-bold text-primary/5 whitespace-nowrap select-none">
+          Your Name
+        </span>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -20,7 +32,6 @@ export const Hero = () => {
           </p>
         </motion.div>
       </div>
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-soft-bg to-soft-bg/50" />
     </section>
   );
 };
