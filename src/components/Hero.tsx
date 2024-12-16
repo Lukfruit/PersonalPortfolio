@@ -11,7 +11,7 @@ export const Hero = () => {
           transform: "translateY(calc(var(--scroll) * 0.5))",
         }}
       >
-        <span className="text-[60vw] font-bold text-primary/5 whitespace-nowrap select-none">
+        <span className="text-[50vw] font-bold text-primary/5 whitespace-nowrap select-none">
           Your Name
         </span>
       </div>
