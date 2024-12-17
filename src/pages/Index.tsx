@@ -7,7 +7,7 @@ import { Contact } from "../components/Contact";
 const Index = () => {
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = Math.min(window.scrollY, 1250);
+      const scrollY = Math.min(window.scrollY, 1450);
       document.documentElement.style.setProperty(
         "--scroll",
         `${scrollY}px`
