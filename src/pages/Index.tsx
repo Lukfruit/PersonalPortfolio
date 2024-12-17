@@ -25,7 +25,7 @@ const Index = () => {
         <div 
           className="absolute inset-x-0 -top-20 -bottom-30 bg-gradient-to-b from-[#FDE1D3]/95 to-[#F7D9CB]/95"
           style={{
-            transform: "translateY(calc(var(--scroll) * 0.1))",
+            transform: "translateY(calc(var(--scroll) * 0.4))",
           }}
         />
         
