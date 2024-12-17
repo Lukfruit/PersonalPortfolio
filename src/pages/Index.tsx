@@ -31,7 +31,7 @@ const Index = () => {
         />
 
         {/* Option 2: Soft Peach */}
-        <div className="relative z-10 bg-[#FDE1D3]/95 p-8 mb-8 mt-10">
+        <div className="relative z-10 bg-[#FDE1D3]/95 p-8 mb-8 pt-10">
           <About />
         </div>
 
