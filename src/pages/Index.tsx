@@ -21,15 +21,17 @@ const Index = () => {
     <main className="bg-[#F6EFE9] min-h-screen relative">
       <Hero />
       <div className="relative">
-        {/* Content background with parallax - adjusted height */}
+        {/* Content background with parallax - medium speed */}
         <div 
           className="absolute inset-x-0 -top-96 h-[150%] bg-[#FDE1D3]/95"
           style={{
-            transform: "translateY(calc(var(--scroll) * 0.6))",
+            transform: "translateY(calc(var(--scroll) * 0.4))", // Medium speed (half of content speed)
           }}
         />
         
-        <div className="relative z-10 pb-20">
+        <div className="relative z-10 pb-20" style={{
+          transform: "translateY(calc(var(--scroll) * 0.8))", // Fastest speed for content
+        }}>
           <About />
           <Projects />
           <Contact />
