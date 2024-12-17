@@ -23,7 +23,7 @@ const Index = () => {
       <div className="relative">
         {/* Content background with parallax - removed the unnecessary yellowish overlay */}
         <div 
-          className="absolute inset-x-0 -top-20 bottom - 0 bg-gradient-to-b from-[#E5F2F2]/95 to-[#FDE1D3]/95"
+          className="absolute inset-x-0 -top-20 bottom-0 bg-gradient-to-b from-[#FDE1D3]/95 to-[#FDE1D3]/95"
           style={{
             transform: "translateY(calc(var(--scroll) * 0.2))",
           }}
