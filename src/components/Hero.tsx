@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 export const Hero = () => {
   return (
     <section className="min-h-screen flex items-center relative overflow-hidden">
-      {/* Giant background text - slowest movement */}
+      {/* Giant background text */}
       <div 
         className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none"
-{/*         style={{
-          transform: "translateY(calc(var(--scroll) * 0.02))", // Slowest speed
-        }} */}
+        style={{
+          transform: "translateY(calc(var(--scroll) * 0.5))",
+        }}
       >
         <span className="text-[50vw] font-bold text-primary/5 whitespace-nowrap select-none">
           Your Name
