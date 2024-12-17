@@ -4,7 +4,7 @@ import { Mail, Github, Linkedin } from "lucide-react";
 
 export const Contact = () => {
   return (
-    <section className="py-20 bg-soft-bg/30">
+    <section className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -13,16 +13,16 @@ export const Contact = () => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-soft-text mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#2A4365] mb-8">
             Get In Touch
           </h2>
-          <p className="text-lg text-soft-text/80 mb-12">
+          <p className="text-lg text-[#4A5568] mb-12">
             I'm always open to new opportunities and interesting projects.
           </p>
           <div className="flex justify-center gap-8">
             <a
               href="mailto:your.email@example.com"
-              className="text-soft-text/70 hover:text-primary transition-colors"
+              className="text-[#4A5568] hover:text-[#2A4365] transition-colors"
             >
               <Mail size={24} />
             </a>
@@ -30,7 +30,7 @@ export const Contact = () => {
               href="https://github.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-soft-text/70 hover:text-primary transition-colors"
+              className="text-[#4A5568] hover:text-[#2A4365] transition-colors"
             >
               <Github size={24} />
             </a>
@@ -38,7 +38,7 @@ export const Contact = () => {
               href="https://linkedin.com/in/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-soft-text/70 hover:text-primary transition-colors"
+              className="text-[#4A5568] hover:text-[#2A4365] transition-colors"
             >
               <Linkedin size={24} />
             </a>

@@ -21,11 +21,11 @@ const Index = () => {
     <main className="bg-[#F6EFE9] min-h-screen relative">
       <Hero />
       <div className="relative">
-        {/* Content background with parallax - removed the unnecessary yellowish overlay */}
+        {/* Content background with parallax - adjusted speed to reach top before About section */}
         <div 
-          className="absolute inset-x-0 -top-20 h-[200%] bg-[#FDE1D3]/95"
+          className="absolute inset-x-0 -top-40 h-[150%] bg-[#FDE1D3]/95"
           style={{
-            transform: "translateY(calc(var(--scroll) * 0.2))",
+            transform: "translateY(calc(var(--scroll) * 0.4))",
           }}
         />
         
