@@ -11,7 +11,10 @@ export const Hero = () => {
           transform: "translateY(calc(var(--scroll) * 0.7))",
         }}
       >
-        <span className="text-[35rem] font-bold text-primary/5 whitespace-nowrap select-none">
+        <span className="font-bold text-primary/5 whitespace-nowrap select-none"
+          style={{
+    fontSize: "clamp(25rem, 50vw, 40rem)", // Min size 10rem, scales with viewport, max size 25rem
+  }}>
           Your Name
         </span>
       </div>
