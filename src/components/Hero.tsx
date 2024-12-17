@@ -14,6 +14,8 @@ export const Hero = () => {
         <span className="font-bold text-primary/5 whitespace-nowrap select-none"
           style={{
     fontSize: "clamp(25rem, 50vw, 40rem)", // Min size 10rem, scales with viewport, max size 25rem
+            sm:translate-x-[-10%],
+            sm:translate-y-[-50%]
   }}>
           Your Name
         </span>
