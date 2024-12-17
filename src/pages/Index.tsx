@@ -23,7 +23,7 @@ const Index = () => {
       <div className="relative">
         {/* Content background with parallax - removed the unnecessary yellowish overlay */}
         <div 
-          className="absolute inset-x-0 -top-20 bottom-0 bg-gradient-to-b from-[#FDE1D3]/95 to-[#FDE1D3]/95"
+          className="absolute inset-x-0 -top-20 bottom-0 bg-gradient-to-b from-[#FDE1D3]/95 to-[#ADA1A3]/95"
           style={{
             transform: "translateY(calc(var(--scroll) * 0.2))",
           }}
@@ -37,7 +37,7 @@ const Index = () => {
 
         {/* Option 2: Soft Peach */}
         <div className="relative z-10 bg-[#FDE1D3]/95 p-8 mb-8">
-          <h3 className="text-2xl font-bold mb-4">Option 2: Soft Peach Background</h3>
+          {/* <h3 className="text-2xl font-bold mb-4">Option 2: Soft Peach Background</h3> */}
           <About />
         </div>
 
