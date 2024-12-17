@@ -29,11 +29,11 @@ const Index = () => {
           }}
         />
         
-        {/* Option 1: Light Teal */}
+{/*         {/* Option 1: Light Teal */}
         <div className="relative z-10 bg-[#E5F2F2]/95 p-8 mb-8">
           <h3 className="text-2xl font-bold mb-4">Option 1: Light Teal Background</h3>
           <About />
-        </div>
+        </div> */}
 
         {/* Option 2: Soft Peach */}
         <div className="relative z-10 bg-[#FDE1D3]/95 p-8 mb-8">
@@ -41,11 +41,11 @@ const Index = () => {
           <About />
         </div>
 
-        {/* Option 3: Darker Current Color */}
+{/*         {/* Option 3: Darker Current Color */}
         <div className="relative z-10 bg-[#E1E0F5]/95 p-8 mb-8">
           <h3 className="text-2xl font-bold mb-4">Option 3: Darker Current Color</h3>
           <About />
-        </div>
+        </div> */}
 
         <div className="relative z-10">
           <Projects />
