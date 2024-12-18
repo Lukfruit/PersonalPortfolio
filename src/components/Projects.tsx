@@ -6,16 +6,19 @@ const projects = [
     title: "Project One",
     description: "A beautiful web application built with React and TypeScript",
     tags: ["React", "TypeScript", "Tailwind"],
+    bgColor: "bg-[#E5DEFF]",
   },
   {
     title: "Project Two",
     description: "An innovative solution for modern problems",
     tags: ["Next.js", "Node.js", "MongoDB"],
+    bgColor: "bg-[#B8C4E8]",
   },
   {
     title: "Project Three",
     description: "Transforming ideas into reality",
     tags: ["React", "Firebase", "Redux"],
+    bgColor: "bg-[#D4C1E5]",
   },
 ];
 
@@ -34,7 +37,7 @@ export const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-[#FDE1D3]/80 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+              className={`${project.bgColor} p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow`}
             >
               <h3 className="text-xl font-semibold text-soft-text mb-3">
                 {project.title}
