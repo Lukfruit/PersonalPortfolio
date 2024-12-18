@@ -18,7 +18,7 @@ const shapes = [
 
 export const FloatingShapes = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none"
+    <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10"
       style={{
         transform: "translateY(calc(var(--scroll) * 0.5))",
       }}>
@@ -41,14 +41,12 @@ export const FloatingShapes = () => {
               transform: `rotate(${shape.rotation}deg)`,
             }}
           >
-            {/* Hexagonal shape */}
             <div className="absolute inset-0">
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 <polygon
                   points="50,0 100,25 100,75 50,100 0,75 0,25"
                   className="fill-none stroke-primary/30 stroke-2"
                 />
-                {/* Cube projection lines */}
                 <line x1="50" y1="0" x2="25" y2="25" className="stroke-primary/30 stroke-2" />
                 <line x1="100" y1="25" x2="75" y2="50" className="stroke-primary/30 stroke-2" />
                 <line x1="100" y1="75" x2="75" y2="75" className="stroke-primary/30 stroke-2" />

@@ -6,20 +6,44 @@ const projects = [
     title: "Project One",
     description: "A beautiful web application built with React and TypeScript",
     tags: ["React", "TypeScript", "Tailwind"],
-    bgColor: "bg-[#E5DEFF]",
+    bgColor: "bg-[#E8F3F3]", // Soft mint
+    tagColor: "bg-[#006666]", // Darker teal
   },
   {
     title: "Project Two",
     description: "An innovative solution for modern problems",
     tags: ["Next.js", "Node.js", "MongoDB"],
-    bgColor: "bg-[#B8C4E8]",
+    bgColor: "bg-[#F3E8E8]", // Soft rose
+    tagColor: "bg-[#8B4513]", // Saddle brown
   },
   {
     title: "Project Three",
     description: "Transforming ideas into reality",
     tags: ["React", "Firebase", "Redux"],
-    bgColor: "bg-[#D4C1E5]",
+    bgColor: "bg-[#E8F0F3]", // Soft blue
+    tagColor: "bg-[#1A5F7A]", // Steel blue
   },
+  {
+    title: "Project Four",
+    description: "Building seamless user experiences",
+    tags: ["Vue.js", "GraphQL", "AWS"],
+    bgColor: "bg-[#F3F0E8]", // Soft cream
+    tagColor: "bg-[#8B7355]", // Warm brown
+  },
+  {
+    title: "Project Five",
+    description: "Creating intuitive interfaces",
+    tags: ["Angular", "Python", "Docker"],
+    bgColor: "bg-[#ECF3E8]", // Soft sage
+    tagColor: "bg-[#4F7942]", // Fern green
+  },
+  {
+    title: "Project Six",
+    description: "Developing scalable solutions",
+    tags: ["React Native", "Express", "PostgreSQL"],
+    bgColor: "bg-[#F2E8F3]", // Soft lavender
+    tagColor: "bg-[#614051]", // Eggplant
+  }
 ];
 
 export const Projects = () => {
@@ -47,7 +71,7 @@ export const Projects = () => {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                    className={`px-3 py-1 ${project.tagColor} text-white text-sm rounded-full`}
                   >
                     {tag}
                   </span>
