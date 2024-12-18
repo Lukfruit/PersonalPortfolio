@@ -24,7 +24,6 @@ const Index = () => {
       <FloatingShapes />
       <Hero />
       <div className="relative">
-        {/* Content background with parallax */}
         <div 
           className="absolute inset-x-0 -top-40 bottom-[20rem] bg-gradient-to-b from-[#FDE1D3]/95 to-[#F7D9CB]/95"
           style={{
