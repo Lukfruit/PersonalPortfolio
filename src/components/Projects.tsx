@@ -6,64 +6,64 @@ const projects = [
     title: "Project One",
     description: "A beautiful web application built with React and TypeScript",
     tags: ["React", "TypeScript", "Tailwind"],
-    bgColor: "bg-[#F1F8E9]/90", // Very Light Green
-    tagColor: "bg-[#33691E]/10 text-[#33691E]"
+    bgColor: "bg-[#FAFCF7]/95", // Very Light, almost white
+    tagColor: "bg-[#4B6B3A]/10 text-[#4B6B3A]"
   },
   {
     title: "Project Two",
     description: "An innovative solution for modern problems",
     tags: ["Next.js", "Node.js", "MongoDB"],
-    bgColor: "bg-[#F1F8E9]/90", // Very Light Green
-    tagColor: "bg-[#33691E]/10 text-[#33691E]"
+    bgColor: "bg-[#FAFCF7]/95",
+    tagColor: "bg-[#4B6B3A]/10 text-[#4B6B3A]"
   },
   {
     title: "Project Three",
     description: "Transforming ideas into reality",
     tags: ["React", "Firebase", "Redux"],
-    bgColor: "bg-[#F1F8E9]/90", // Very Light Green
-    tagColor: "bg-[#33691E]/10 text-[#33691E]"
+    bgColor: "bg-[#FAFCF7]/95",
+    tagColor: "bg-[#4B6B3A]/10 text-[#4B6B3A]"
   },
   {
     title: "Project Four",
     description: "Building seamless user experiences",
     tags: ["Vue.js", "GraphQL", "AWS"],
-    bgColor: "bg-[#F1F8E9]/90", // Very Light Green
-    tagColor: "bg-[#33691E]/10 text-[#33691E]"
+    bgColor: "bg-[#FAFCF7]/95",
+    tagColor: "bg-[#4B6B3A]/10 text-[#4B6B3A]"
   },
   {
     title: "Project Five",
     description: "Creating innovative digital solutions",
     tags: ["Angular", "Python", "Docker"],
-    bgColor: "bg-[#F1F8E9]/90", // Very Light Green
-    tagColor: "bg-[#33691E]/10 text-[#33691E]"
+    bgColor: "bg-[#FAFCF7]/95",
+    tagColor: "bg-[#4B6B3A]/10 text-[#4B6B3A]"
   },
   {
     title: "Project Six",
     description: "Developing cutting-edge applications",
     tags: ["Svelte", "Go", "Kubernetes"],
-    bgColor: "bg-[#F1F8E9]/90", // Very Light Green
-    tagColor: "bg-[#33691E]/10 text-[#33691E]"
+    bgColor: "bg-[#FAFCF7]/95",
+    tagColor: "bg-[#4B6B3A]/10 text-[#4B6B3A]"
   },
   {
     title: "Project Seven",
     description: "Optimizing performance at scale",
     tags: ["React", "Ruby", "Redis"],
-    bgColor: "bg-[#F1F8E9]/90", // Very Light Green
-    tagColor: "bg-[#33691E]/10 text-[#33691E]"
+    bgColor: "bg-[#FAFCF7]/95",
+    tagColor: "bg-[#4B6B3A]/10 text-[#4B6B3A]"
   },
   {
     title: "Project Eight",
     description: "Engineering reliable systems",
     tags: ["Java", "Spring", "PostgreSQL"],
-    bgColor: "bg-[#F1F8E9]/90", // Very Light Green
-    tagColor: "bg-[#33691E]/10 text-[#33691E]"
+    bgColor: "bg-[#FAFCF7]/95",
+    tagColor: "bg-[#4B6B3A]/10 text-[#4B6B3A]"
   },
   {
     title: "Project Nine",
     description: "Crafting delightful interfaces",
     tags: ["Flutter", "Dart", "Firebase"],
-    bgColor: "bg-[#F1F8E9]/90", // Very Light Green
-    tagColor: "bg-[#33691E]/10 text-[#33691E]"
+    bgColor: "bg-[#FAFCF7]/95",
+    tagColor: "bg-[#4B6B3A]/10 text-[#4B6B3A]"
   }
 ];
 
