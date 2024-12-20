@@ -7,7 +7,7 @@ const projects = [
     description: "A beautiful web application built with React and TypeScript",
     tags: ["React", "TypeScript", "Tailwind"],
     bgColor: "bg-[#FAF6F3]/95", // Very soft warm white with slight transparency
-    tagColor: "bg-[#F3E9E4]/90 text-[#9E8E87]" // Subtle warm gray for tags
+    tagColor: "bg-[#F3E9E4]/90 text-[#008080]" // Teal text for tags
   },
   {
     title: "Project Two",
