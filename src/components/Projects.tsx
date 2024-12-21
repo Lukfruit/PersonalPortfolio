@@ -90,7 +90,7 @@ export const Projects = () => {
                 </h3>
                 <p className="text-soft-text/70 mb-4">{project.description}</p>
               </div>
-              <div className="flex flex-wrap gap-2 mt-auto justify-between">
+              <div className="flex flex-wrap gap-1.5 mt-auto justify-between">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
