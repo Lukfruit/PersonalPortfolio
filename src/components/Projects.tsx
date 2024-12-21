@@ -90,14 +90,15 @@ export const Projects = () => {
                 </h3>
                 <p className="text-soft-text/70 mb-4">{project.description}</p>
               </div>
-              <div className="flex flex-wrap gap-5 mt-auto justify-center items-center">
+              <div className="grid grid-cols-3 gap-0.5 mt-auto">
                 {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className={`px-3 py-1 ${project.tagColor} text-sm rounded-full`}
-                  >
-                    {tag}
-                  </span>
+                  <div key={tag} className="flex justify-center items-center">
+                    <span
+                      className={`px-3 py-1 ${project.tagColor} text-sm rounded-full`}
+                    >
+                      {tag}
+                    </span>
+                  </div>
                 ))}
               </div>
             </motion.div>
