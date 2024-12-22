@@ -1,15 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const projects = [
   {
+    id: "project-one",
     title: "Project One",
     description: "A beautiful web application built with React and TypeScript",
     tags: ["React", "TypeScript", "Tailwind"],
-    bgColor: "bg-[#FAF6F3]/95", // Very soft warm white with slight transparency
-    tagColor: "bg-[#F3E9E4]/90 text-[#008080]" // Teal text for tags
+    bgColor: "bg-[#FAF6F3]/95",
+    tagColor: "bg-[#F3E9E4]/90 text-[#008080]"
   },
   {
+    id: "project-two",
     title: "Project Two",
     description: "An innovative solution for modern problems",
     tags: ["Next.js", "Node.js", "MongoDB"],
@@ -17,6 +20,7 @@ const projects = [
     tagColor: "bg-[#F3E9E4]/90 text-[#008080]"
   },
   {
+    id: "project-three",
     title: "Project Three",
     description: "Transforming ideas into reality",
     tags: ["React", "Firebase", "Redux"],
@@ -24,6 +28,7 @@ const projects = [
     tagColor: "bg-[#F3E9E4]/90 text-[#008080]"
   },
   {
+    id: "project-four",
     title: "Project Four",
     description: "Building seamless user experiences",
     tags: ["Vue.js", "GraphQL", "AWS"],
@@ -31,6 +36,7 @@ const projects = [
     tagColor: "bg-[#F3E9E4]/90 text-[#008080]"
   },
   {
+    id: "project-five",
     title: "Project Five",
     description: "Creating innovative digital solutions",
     tags: ["Angular", "Python", "Docker"],
@@ -38,6 +44,7 @@ const projects = [
     tagColor: "bg-[#F3E9E4]/90 text-[#008080]"
   },
   {
+    id: "project-six",
     title: "Project Six",
     description: "Developing cutting-edge applications",
     tags: ["Svelte", "Go", "Kubernetes"],
@@ -45,6 +52,7 @@ const projects = [
     tagColor: "bg-[#F3E9E4]/90 text-[#008080]"
   },
   {
+    id: "project-seven",
     title: "Project Seven",
     description: "Optimizing performance at scale",
     tags: ["React", "Ruby", "Redis"],
@@ -52,6 +60,7 @@ const projects = [
     tagColor: "bg-[#F3E9E4]/90 text-[#008080]"
   },
   {
+    id: "project-eight",
     title: "Project Eight",
     description: "Engineering reliable systems",
     tags: ["Java", "Spring", "PostgreSQL"],
@@ -59,6 +68,7 @@ const projects = [
     tagColor: "bg-[#F3E9E4]/90 text-[#008080]"
   },
   {
+    id: "project-nine",
     title: "Project Nine",
     description: "Crafting delightful interfaces",
     tags: ["Flutter", "Dart", "Firebase"],
@@ -68,10 +78,10 @@ const projects = [
 ];
 
 export const Projects = () => {
-  // Function to calculate the width based on the longest tag in each project
+  const navigate = useNavigate();
+  
   const getMaxTagWidth = (tags: string[]) => {
     const maxLength = Math.max(...tags.map(tag => tag.length));
-    // Add some padding to the calculated width
     return `${maxLength * 0.7 + 2}rem`;
   };
 
@@ -89,7 +99,8 @@ export const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`${project.bgColor} p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full`}
+              className={`${project.bgColor} p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer`}
+              onClick={() => navigate(`/project/${project.id}`)}
             >
               <div className="flex-grow">
                 <h3 className="text-xl font-semibold text-soft-text mb-3">
