@@ -2,6 +2,9 @@ export interface Project {
   id: string;
   title: string;
   description: string;
+  detailedDescription?: string;
+  challenges?: string;
+  solutions?: string;
   tags: string[];
   bgColor: string;
   tagColor: string;
@@ -12,6 +15,13 @@ export const projects: Project[] = [
     id: "project-one",
     title: "Project One",
     description: "A beautiful web application built with React and TypeScript",
+    detailedDescription: `This project showcases the power of modern web development technologies.
+
+    Built with a focus on user experience and performance, this application demonstrates the seamless integration of React's component-based architecture with TypeScript's type safety.
+    
+    The project leverages the latest web technologies and best practices to deliver a robust and scalable solution.`,
+    challenges: "One of the main challenges was implementing a responsive design that works seamlessly across all devices while maintaining performance and ensuring a consistent user experience.",
+    solutions: "We utilized a combination of Tailwind CSS breakpoints and React's lazy loading capabilities to ensure optimal performance across all devices. The component architecture was carefully planned to maximize reusability and maintainability.",
     tags: ["React", "TypeScript", "Tailwind"],
     bgColor: "bg-[#FAF6F3]/95",
     tagColor: "bg-[#F3E9E4]/90 text-[#008080]"
