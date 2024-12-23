@@ -39,38 +39,41 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className={`${bgColor} p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer`}
+      className={`${bgColor} p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow h-[300px] cursor-pointer relative overflow-hidden`}
       onClick={() => navigate(`/project/${id}`)}
     >
-      <div className="flex-grow">
-        <h3 className="text-xl font-semibold text-soft-text mb-3">
+      {/* Giant background text */}
+      <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none opacity-5">
+        <span 
+          className="font-bold text-primary whitespace-nowrap select-none"
+          style={{
+            fontSize: "clamp(4rem, 15vw, 8rem)",
+          }}
+        >
           {title}
-        </h3>
-        <p className="text-soft-text/70 mb-4">{description}</p>
+        </span>
       </div>
-      <div className="grid grid-cols-3 gap-0.5 mt-auto">
-        {tags.map((tag, tagIndex) => {
-          const maxWidth = getMaxTagWidth(tags);
-          return (
-            <div 
-              key={tag} 
-              className={`flex items-center ${
-                tagIndex === 0 
-                  ? 'justify-end' 
-                  : tagIndex === 2 
-                    ? 'justify-start' 
-                    : 'justify-center'
-              }`}
-            >
+
+      <div className="relative z-10">
+        <div className="text-left">
+          <h3 className="text-4xl font-bold text-primary mb-3">
+            {title}
+          </h3>
+          <p className="text-soft-text/70 mb-6 text-left">{description}</p>
+        </div>
+
+        <div className="absolute bottom-6 left-6 right-6">
+          <div className="flex flex-wrap gap-2">
+            {tags.map((tag) => (
               <span
-                className={`px-3 py-1 ${tagColor} text-sm rounded-full mx-1 inline-block text-center`}
-                style={{ width: maxWidth }}
+                key={tag}
+                className={`${tagColor} px-3 py-1 text-sm rounded-full`}
               >
                 {tag}
               </span>
-            </div>
-          );
-        })}
+            ))}
+          </div>
+        </div>
       </div>
     </motion.div>
   );
