@@ -1,11 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-
-interface Tag {
-  name: string;
-  color: string;
-}
 
 interface ProjectCardProps {
   id: string;
@@ -15,6 +9,7 @@ interface ProjectCardProps {
   bgColor: string;
   tagColor: string;
   index: number;
+  onClick: () => void;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -25,9 +20,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   bgColor,
   tagColor,
   index,
+  onClick,
 }) => {
-  const navigate = useNavigate();
-  
   const getMaxTagWidth = (tags: string[]) => {
     const maxLength = Math.max(...tags.map(tag => tag.length));
     return `${maxLength * 0.7 + 2}rem`;
@@ -40,7 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
       className={`${bgColor} p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow flex flex-col h-full cursor-pointer`}
-      onClick={() => navigate(`/project/${id}`)}
+      onClick={onClick}
     >
       <div className="flex-grow">
         <h3 className="text-xl font-semibold text-soft-text mb-3">

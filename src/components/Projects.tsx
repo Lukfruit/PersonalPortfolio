@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { ProjectCard } from "./ProjectCard";
+import { ProjectModal } from "./ProjectModal";
 import { projects } from "../data/projects";
 
 export const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleProjectClick = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
+
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
@@ -15,10 +29,17 @@ export const Projects = () => {
               key={project.id}
               {...project}
               index={index}
+              onClick={() => handleProjectClick(project)}
             />
           ))}
         </div>
       </div>
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </section>
   );
 };
