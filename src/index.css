@@ -35,6 +35,9 @@
 
     --radius: 0.5rem;
 
+    --section-warm: 25 77% 91%;
+    --section-soft: 30 30% 94%;
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -73,6 +76,9 @@
     --border: 220 20% 20%;
     --input: 220 20% 20%;
     --ring: 180 70% 45%;
+
+    --section-warm: 220 25% 15%;
+    --section-soft: 220 25% 12%;
 
     --sidebar-background: 220 25% 10%;
     --sidebar-foreground: 30 20% 90%;

@@ -52,6 +52,8 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        "section-warm": "hsl(var(--section-warm))",
+        "section-soft": "hsl(var(--section-soft))",
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],
