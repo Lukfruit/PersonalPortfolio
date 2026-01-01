@@ -25,7 +25,7 @@ export const ThemeToggle = () => {
     >
       <motion.div
         initial={false}
-        animate={{ rotate: isDark ? 180 : 0 }}
+        animate={{ rotate: isDark ? 0 : 180 }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
       >
         {isDark ? (
