@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 const isGHPages = process.env.GITHUB_ACTIONS === 'true';
 
 export default defineConfig(({ mode }) => ({
-  base: isGHPages ? "/teal-parallax-portfolio/" : "/",
+  base: isGHPages ? "/PersonalPortfolio/" : "/",
   server: {
     host: "::",
     port: 8080,

@@ -10,8 +10,8 @@ import { ThemeToggle } from "./components/ThemeToggle";
 
 const queryClient = new QueryClient();
 
-const basename = window.location.pathname.startsWith("/teal-parallax-portfolio")
-  ? "/teal-parallax-portfolio"
+const basename = window.location.pathname.startsWith("/PersonalPortfolio")
+  ? "/PersonalPortfolio"
   : "";
 
 const App = () => (
