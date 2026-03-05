@@ -15,7 +15,7 @@ export const Hero = () => {
           style={{
     fontSize: "clamp(13rem, 50vw, 40rem)",
   }}>
-          Your Name
+           Ivan Lukin
         </span>
       </div>
 
@@ -28,7 +28,7 @@ export const Hero = () => {
         >
           <h1 className="text-6xl md:text-8xl font-bold text-foreground mb-6">
             Hello, I'm
-            <span className="text-primary block mt-2">Your Name</span>
+            <span className="text-primary block mt-2">Ivan Lukin</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground">
             I create beautiful digital experiences
