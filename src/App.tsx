@@ -17,7 +17,7 @@ const App = () => (
         <ThemeToggle />
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/teal-parallax-portfolio">
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/project/:id" element={<ProjectDetail />} />

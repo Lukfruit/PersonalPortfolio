@@ -4,8 +4,10 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
+const isGHPages = process.env.GITHUB_ACTIONS === 'true';
+
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? "/teal-parallax-portfolio/" : "/",
+  base: isGHPages ? "/teal-parallax-portfolio/" : "/",
   server: {
     host: "::",
     port: 8080,
