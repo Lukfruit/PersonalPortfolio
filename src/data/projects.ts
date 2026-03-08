@@ -19,21 +19,20 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // ---------- Project One ----------
+  // ---------- H&M Data Analytics ----------
   {
-    id: "project-one",
-    title: "Project One",
-    description: "A beautiful web application built with React and TypeScript",
-    detailedDescription: `This project showcases the power of modern web development technologies.
+    id: "hm-data-project",
+    title: "H&M Data Analytics",
+    description: "Customer segmentation analysis of 31M+ H&M transactions, uncovering that 5% of customers drive over a third of revenue using K-means clustering on 1.35M customers.",
+    detailedDescription: `Analyzed 31+ million transactions from H&M's customer base spanning 2 years to uncover actionable insights for customer retention and revenue optimization.
 
-    Built with a focus on user experience and performance, this application demonstrates the seamless integration of React's component-based architecture with TypeScript's type safety.
+    Using K-means clustering on 1.35 million customers, I identified 4 distinct behavioral segments — from young frequent buyers to high-value VIPs — revealing that just 5.3% of customers contribute 36.4% of total revenue.
     
-    The project leverages the latest web technologies and best practices to deliver a robust and scalable solution.`,
-    challenges: "One of the main challenges was implementing a responsive design that works seamlessly across all devices while maintaining performance and ensuring a consistent user experience.",
-    solutions: "We utilized a combination of Tailwind CSS breakpoints and React's lazy loading capabilities to ensure optimal performance across all devices. The component architecture was carefully planned to maximize reusability and maintainability.",
-    tags: ["React", "TypeScript", "Tailwind"],
-    // link: "https://example.com",
-    // repo: "https://github.com/...",
+    The analysis also uncovered a 65% one-time purchase rate, highlighting a major conversion opportunity, and identified 345k lapsed customers as a win-back target.`,
+    challenges: "Working with 31M+ transaction records required careful data engineering to extract meaningful RFM (Recency, Frequency, Monetary) features from raw purchase data while keeping processing efficient.",
+    solutions: "Leveraged Python, Pandas, and Scikit-learn to build a scalable pipeline — from data cleaning through K-means clustering with silhouette analysis to determine the optimal number of segments.",
+    tags: ["Python", "Pandas", "Scikit-learn", "K-means"],
+    repo: "https://github.com/IvanL-works/H-M-Data-Project",
   },
 
   // ---------- Project Two ----------
