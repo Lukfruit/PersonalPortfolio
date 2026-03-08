@@ -93,21 +93,23 @@ const ProjectDetail = () => {
               </div>
             )}
 
-            {project.challenges && (
+            {project.challengesSolutions && project.challengesSolutions.length > 0 && (
               <div>
-                <h2 className="text-4xl font-semibold mb-6 text-soft-text">Challenges</h2>
-                <p className="text-xl text-soft-text/90 leading-relaxed">
-                  {project.challenges}
-                </p>
-              </div>
-            )}
-
-            {project.solutions && (
-              <div>
-                <h2 className="text-4xl font-semibold mb-6 text-soft-text">Solutions</h2>
-                <p className="text-xl text-soft-text/90 leading-relaxed">
-                  {project.solutions}
-                </p>
+                <h2 className="text-4xl font-semibold mb-6 text-soft-text">Challenges & Solutions</h2>
+                <div className="space-y-8">
+                  {project.challengesSolutions.map((cs, i) => (
+                    <div key={i} className="space-y-3">
+                      <div>
+                        <span className="text-sm font-semibold text-soft-text uppercase tracking-wide">Challenge</span>
+                        <p className="text-xl text-soft-text/90 leading-relaxed mt-1">{cs.challenge}</p>
+                      </div>
+                      <div>
+                        <span className="text-sm font-semibold text-soft-text uppercase tracking-wide">Solution</span>
+                        <p className="text-xl text-soft-text/90 leading-relaxed mt-1">{cs.solution}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </section>
