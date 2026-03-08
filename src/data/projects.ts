@@ -53,10 +53,16 @@ export const projects: Project[] = [
 
   // ---------- Project Three ----------
   {
-    id: "project-three",
-    title: "Project Three",
-    description: "Transforming ideas into reality",
-    tags: ["React", "Firebase", "Redux"],
+    id: "portfolio-website",
+    title: "Portfolio Website",
+    description: "A responsive personal portfolio built with React, TypeScript, and Tailwind CSS — featuring dark mode, animated transitions, and a modular project showcase system.",
+    detailedDescription: `A modern developer portfolio designed and built from scratch using React and TypeScript with Tailwind CSS for styling. Features include a theme toggle with smooth dark/light mode transitions, Framer Motion animations, and a dynamic project card system with detailed modal views.
+
+    The site uses a clean component architecture with centralized data configuration, making it easy to add or update projects without touching component code. Fully responsive across all screen sizes.`,
+    challenges: "Creating a cohesive design system that works seamlessly in both light and dark modes while keeping the codebase maintainable and easy to extend with new projects.",
+    solutions: "Leveraged Tailwind CSS semantic tokens and CSS variables for theming, combined with a data-driven architecture where all project content lives in a single configuration file.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    repo: "https://github.com/Lukfruit/PersonalPortfolio",
   },
 
   // ---------- Project Four ----------
