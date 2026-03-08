@@ -2,14 +2,18 @@ import React from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Github, ExternalLink } from "lucide-react";
 
+interface ChallengeSolution {
+  challenge: string;
+  solution: string;
+}
+
 interface Project {
   id: string;
   title: string;
   description: string;
   tags: string[];
   detailedDescription?: string;
-  challenges?: string;
-  solutions?: string;
+  challengesSolutions?: ChallengeSolution[];
   repo?: string;
   link?: string;
 }
@@ -100,21 +104,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
             </div>
           )}
 
-          {project.challenges && (
+          {project.challengesSolutions && project.challengesSolutions.length > 0 && (
             <div>
-              <h2 className="text-2xl font-semibold mb-3 text-foreground">Challenges</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                {project.challenges}
-              </p>
-            </div>
-          )}
-
-          {project.solutions && (
-            <div>
-              <h2 className="text-2xl font-semibold mb-3 text-foreground">Solutions</h2>
-              <p className="text-muted-foreground leading-relaxed">
-                {project.solutions}
-              </p>
+              <h2 className="text-2xl font-semibold mb-4 text-foreground">Challenges & Solutions</h2>
+              <div className="space-y-5">
+                {project.challengesSolutions.map((cs, i) => (
+                  <div key={i} className="space-y-2">
+                    <div>
+                      <span className="text-sm font-semibold text-foreground uppercase tracking-wide">Challenge</span>
+                      <p className="text-muted-foreground leading-relaxed mt-1">{cs.challenge}</p>
+                    </div>
+                    <div>
+                      <span className="text-sm font-semibold text-foreground uppercase tracking-wide">Solution</span>
+                      <p className="text-muted-foreground leading-relaxed mt-1">{cs.solution}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </div>
