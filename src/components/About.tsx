@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { siteConfig } from "../data/siteConfig";
 
 export const About = () => {
   return (
@@ -15,12 +16,11 @@ export const About = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
             About Me
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            I'm a passionate developer focused on creating intuitive and engaging web experiences. With a keen eye for design and attention to detail, I bring ideas to life through clean, efficient code.
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.
-          </p>
+          {siteConfig.about.map((paragraph, i) => (
+            <p key={i} className="text-lg text-muted-foreground leading-relaxed mb-6">
+              {paragraph}
+            </p>
+          ))}
         </motion.div>
       </div>
     </section>

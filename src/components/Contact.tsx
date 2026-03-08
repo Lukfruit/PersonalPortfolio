@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin } from "lucide-react";
+import { siteConfig } from "../data/siteConfig";
 
 export const Contact = () => {
   return (
@@ -17,17 +18,17 @@ export const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-lg text-muted-foreground mb-12">
-            I'm always open to new opportunities and interesting projects.
+            {siteConfig.contactMessage}
           </p>
           <div className="flex justify-center gap-8">
             <a
-              href="mailto:ilukin@me.com"
+              href={`mailto:${siteConfig.email}`}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Mail size={24} />
             </a>
             <a
-              href="https://github.com/IvanL-works"
+              href={siteConfig.github}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -35,7 +36,7 @@ export const Contact = () => {
               <Github size={24} />
             </a>
             <a
-              href="https://www.linkedin.com/in/ivanlukindev/"
+              href={siteConfig.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"

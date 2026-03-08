@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { siteConfig } from "../data/siteConfig";
 
 export const Hero = () => {
   return (
@@ -15,7 +16,7 @@ export const Hero = () => {
           style={{
     fontSize: "clamp(13rem, 50vw, 40rem)",
   }}>
-           Ivan Lukin
+           {siteConfig.name}
         </span>
       </div>
 
@@ -28,10 +29,10 @@ export const Hero = () => {
         >
           <h1 className="text-6xl md:text-8xl font-bold text-foreground mb-6">
             Hello, I'm
-            <span className="text-primary block mt-2">Ivan Lukin</span>
+            <span className="text-primary block mt-2">{siteConfig.name}</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground">
-            I create beautiful digital experiences
+            {siteConfig.headline}
           </p>
         </motion.div>
       </div>
