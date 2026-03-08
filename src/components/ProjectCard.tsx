@@ -41,7 +41,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="grid grid-cols-3 gap-0.5 mt-auto" style={{ gridAutoRows: '1.25rem' }}>
         {tags.map((tag, tagIndex) => {
           const maxWidth = getMaxTagWidth(tags);
-          const isFat = tag.length >= 8;
+          const isFat = tag.length >= 10;
           const colIndex = tagIndex % 3;
           return (
             <div 
