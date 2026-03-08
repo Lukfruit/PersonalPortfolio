@@ -10,6 +10,52 @@ interface ProjectCardProps {
   onClick: () => void;
 }
 
+interface TagLayout {
+  tag: string;
+  colStart: number;
+  colSpan: number;
+}
+
+function computeTagLayout(tags: string[]): TagLayout[] {
+  const longTags: string[] = [];
+  const shortTags: string[] = [];
+  tags.forEach(tag => {
+    if (tag.length >= 10) longTags.push(tag);
+    else shortTags.push(tag);
+  });
+
+  const result: TagLayout[] = [];
+  let longIdx = 0;
+  let shortIdx = 0;
+
+  while (longIdx < longTags.length || shortIdx < shortTags.length) {
+    let col = 0;
+    // Try to place a long tag first in this row
+    if (longIdx < longTags.length && col + 2 <= 3) {
+      result.push({ tag: longTags[longIdx], colStart: col, colSpan: 2 });
+      longIdx++;
+      col += 2;
+    }
+    // Fill remaining slots with short tags
+    while (col < 3 && shortIdx < shortTags.length) {
+      result.push({ tag: shortTags[shortIdx], colStart: col, colSpan: 1 });
+      shortIdx++;
+      col++;
+    }
+    // If nothing was placed (shouldn't happen), break to avoid infinite loop
+    if (col === 0) break;
+  }
+
+  return result;
+}
+
+function getJustification(colStart: number, colSpan: number): string {
+  if (colSpan === 2) return "justify-center";
+  if (colStart === 0) return "justify-end";
+  if (colStart === 2) return "justify-start";
+  return "justify-center";
+}
+
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   id,
   title,
@@ -19,9 +65,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   onClick,
 }) => {
   const getMaxTagWidth = (tags: string[]) => {
-    const maxLength = Math.max(...tags.map(tag => tag.length));
+    const shortTags = tags.filter(t => t.length < 10);
+    if (shortTags.length === 0) return "4rem";
+    const maxLength = Math.max(...shortTags.map(tag => tag.length));
     return `${maxLength * 0.7 + 2}rem`;
   };
+
+  const layout = computeTagLayout(tags);
+  const maxWidth = getMaxTagWidth(tags);
 
   return (
     <motion.div
@@ -39,30 +90,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <p className="text-muted-foreground mb-4">{description}</p>
       </div>
       <div className="grid grid-cols-3 gap-2 mt-auto">
-        {tags.map((tag, tagIndex) => {
-          const maxWidth = getMaxTagWidth(tags);
-          const isFat = tag.length >= 10;
-          const colIndex = tagIndex % 3;
-          return (
-            <div 
-              key={tag} 
-              className={`flex items-center ${
-                colIndex === 0 
-                  ? 'justify-end' 
-                  : colIndex === 2 
-                    ? 'justify-start' 
-                    : 'justify-center'
-              } ${isFat ? 'row-span-2' : 'row-span-1'}`}
+        {layout.map(({ tag, colStart, colSpan }) => (
+          <div
+            key={tag}
+            className={`flex items-center ${getJustification(colStart, colSpan)}`}
+            style={{ gridColumn: `${colStart + 1} / span ${colSpan}` }}
+          >
+            <span
+              className="px-3 py-1 bg-secondary text-primary text-sm rounded-full text-center"
+              style={{ width: colSpan === 2 ? "100%" : maxWidth }}
             >
-              <span
-                className={`px-3 py-1 bg-secondary text-primary text-sm rounded-full mx-1 inline-block text-center`}
-                style={{ width: maxWidth }}
-              >
-                {tag}
-              </span>
-            </div>
-          );
-        })}
+              {tag}
+            </span>
+          </div>
+        ))}
       </div>
     </motion.div>
   );

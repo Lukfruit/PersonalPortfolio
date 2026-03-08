@@ -1,41 +1,46 @@
 
 
-## Plan: Smart tag layout with long tags (col-span-2), no empty columns
+## Problem
 
-### Approach
+On GitHub Pages, the URL is `lukfruit.github.io/teal-parallax-portfolio/`. React Router's `BrowserRouter` without a `basename` expects routes at `/`, so the path `/teal-parallax-portfolio/` matches nothing. The `ThemeToggle` is outside the router, which is why it still appears.
 
-A two-pass layout algorithm that places long tags first, then fills remaining slots with short tags — ensuring no row has empty columns.
+## Fix
 
-### Algorithm: `computeTagLayout(tags)`
+**`src/App.tsx`** — Add a conditional `basename` to `BrowserRouter`:
 
-```text
-Pass 1: Separate tags into longTags (length >= 10) and shortTags (length < 10)
-
-Pass 2: Build rows (each row = 3 columns)
-  - For each long tag: needs 2 cols. If current row has >= 2 cols free, place it. Otherwise start new row.
-  - After placing a long tag, there's 1 slot left in that row — fill it with the next short tag.
-  - Any remaining short tags fill subsequent rows normally (3 per row).
-
-Output: array of { tag, colStart, colSpan } for CSS grid placement.
+```tsx
+<BrowserRouter basename="/teal-parallax-portfolio">
 ```
 
-**Example** — tags: `["Python", "Pandas", "Scikit-learn", "K-means"]`
+But to avoid breaking the Lovable preview (where paths start at `/`), we need to detect the environment. Since `vite.config.ts` already sets `base` conditionally using `GITHUB_ACTIONS`, we can use the same approach with a Vite env variable:
 
-```text
-Long tags:  Scikit-learn (12 chars)
-Short tags: Python, Pandas, K-means
-
-Row 1: [Scikit-learn (col 0-1)]  [Python (col 2)]
-Row 2: [Pandas (col 0)]  [K-means (col 1)]  (empty col 2)
+**`vite.config.ts`** — Pass the base path as a define:
+```ts
+define: {
+  __BASE_PATH__: JSON.stringify(isGHPages ? "/teal-parallax-portfolio" : ""),
+},
 ```
 
-Wait — that leaves col 2 empty. Since we only have 4 tags, the last row will have 2 items in a 3-col grid. That's unavoidable with 4 tags (same as current behavior). The key guarantee is: **a long tag never causes an empty column in its own row** — it always shares its row with a short tag if one is available.
+**`src/App.tsx`** — Use it:
+```tsx
+<BrowserRouter basename={(window as any).__BASE_PATH__ || ""}>
+```
 
-### Changes in `src/components/ProjectCard.tsx`
+Actually, a simpler approach: detect at runtime whether the URL starts with `/teal-parallax-portfolio`:
 
-1. **Remove** `isFat` / `row-span` logic
-2. **Add** `computeTagLayout(tags)` function implementing the two-pass algorithm above
-3. **Render** using explicit `gridColumn` style: `gridColumn: \`\${colStart + 1} / span \${colSpan}\``
-4. **Justification**: Based on `colStart` and `colSpan` — single col 0 → right-align, single col 2 → left-align, col 1 or spanning → center
-5. **Width**: Short tags use existing `maxWidth`. Long tags use `width: 100%` to fill their 2-col span
+**`src/App.tsx`** only:
+```tsx
+const basename = window.location.pathname.startsWith("/teal-parallax-portfolio")
+  ? "/teal-parallax-portfolio"
+  : "";
+
+// Then:
+<BrowserRouter basename={basename}>
+```
+
+This requires zero build config changes and works in both Lovable preview and GitHub Pages.
+
+## Summary
+
+One small change to `src/App.tsx` — detect the base path at runtime so React Router matches routes correctly on GitHub Pages while keeping the Lovable preview working.
 
