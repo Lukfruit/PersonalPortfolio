@@ -109,7 +109,7 @@ export const projects: Project[] = [
         solution: "Built an encounters system that maintains a rolling 10-interaction history string, distinguishing genuine recall from lookups (which award only 0.5× XP), giving a more honest signal to the spaced repetition algorithm.",
       },
     ],
-    tags: ["SwiftUI", "SQLite", "Gemini API", "Apple Vision", "SM-2 SRS"],
+    tags: ["SwiftUI", "SQLite", "Gemini API", "Apple Vision", "Apple NLP", "SM-2 SRS", "MVVM", "iOS 26+"],
   },
 
   // ---------- Project Five ----------
