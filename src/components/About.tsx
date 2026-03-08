@@ -13,7 +13,7 @@ export const About = () => {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-8 lg:-translate-x-8">
             About Me
           </h2>
           {siteConfig.about.map((paragraph, i) => (
