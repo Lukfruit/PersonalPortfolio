@@ -26,69 +26,60 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto bg-background border-border p-0">
-        {/* Hero section with giant background text */}
-        <div className="relative min-h-[300px] flex items-center overflow-hidden p-8">
-          {/* Giant background text */}
-          <div className="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none">
-            <span 
-              className="font-bold text-primary/10 whitespace-nowrap select-none"
-              style={{ fontSize: "clamp(6rem, 20vw, 12rem)" }}
-            >
+        {/* Hero section */}
+        <div className="relative flex flex-col overflow-hidden px-8 pt-10 pb-8">
+          {/* Subtle background accent */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-primary/20" />
+
+          <DialogHeader className="text-left mb-5">
+            <DialogTitle className="text-3xl md:text-5xl font-bold text-foreground tracking-tight">
               {project.title}
-            </span>
+            </DialogTitle>
+          </DialogHeader>
+          
+          <div className="flex gap-2 flex-wrap mb-5">
+            {project.tags.map(tag => (
+              <span
+                key={tag}
+                className="px-3 py-1 border border-primary/30 text-primary text-sm rounded-full"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
+          
+          <p className="text-muted-foreground leading-relaxed mb-5">
+            {project.description}
+          </p>
 
-          <div className="relative z-10 w-full">
-            <DialogHeader className="text-left">
-              <DialogTitle className="text-4xl md:text-6xl font-bold text-primary mb-4">
-                {project.title}
-              </DialogTitle>
-            </DialogHeader>
-            
-            <div className="flex gap-2 flex-wrap mb-4">
-              {project.tags.map(tag => (
-                <span
-                  key={tag}
-                  className="px-3 py-1 bg-secondary text-primary text-sm rounded-full"
+          {(project.repo || project.link) && (
+            <div className="flex gap-3">
+              {project.repo && (
+                <a
+                  href={project.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                  {tag}
-                </span>
-              ))}
+                  <Github className="w-4 h-4" />
+                  GitHub
+                </a>
+              )}
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 border border-border text-foreground rounded-lg hover:bg-accent transition-colors text-sm font-medium"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Live Demo
+                </a>
+              )}
             </div>
-            
-            <p className="text-lg text-muted-foreground mb-4">
-              {project.description}
-            </p>
-
-            {(project.repo || project.link) && (
-              <div className="flex gap-3">
-                {project.repo && (
-                  <a
-                    href={project.repo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <Github className="w-4 h-4" />
-                    View on GitHub
-                  </a>
-                )}
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-secondary text-foreground rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    Live Demo
-                  </a>
-                )}
-              </div>
-            )}
-          </div>
+          )}
         </div>
 
         {/* Content section */}
