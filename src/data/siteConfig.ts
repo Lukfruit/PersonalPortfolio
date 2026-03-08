@@ -7,12 +7,14 @@
 export const siteConfig = {
   // ---------- Personal Info ----------
   name: "Ivan Lukin",
-  headline: "I create beautiful digital experiences",
+  headline: "I build small systems that turn messy data into insight.",
 
   // ---------- About Section ----------
   about: [
-    "I'm a passionate developer focused on creating intuitive and engaging web experiences. With a keen eye for design and attention to detail, I bring ideas to life through clean, efficient code.",
-    "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.",
+    "I'm interested in systems that turn messy information into something understandable. My projects often sit at the intersection of data, behavior, and small tools that reveal patterns.",
+    "I've worked on analyzing large retail datasets, building a browser extension that aggregates YouTube viewing behavior, and designing a language learning app that tracks study patterns using a structured database.",
+    "I enjoy exploring how data can describe human behavior — whether that's customer purchases, learning progress, or the way people spend their time online.",
+    "Outside of personal projects, I contribute to the Guild Wars 2 Wiki, helping maintain structured documentation and building small widgets for the site.",
   ],
 
   // ---------- Contact / Social Links ----------
