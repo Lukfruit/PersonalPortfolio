@@ -26,7 +26,7 @@ export const Projects = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <div className={topGroup.length === 0 ? 'mx-auto max-w-full lg:max-w-[calc(66.666%+1rem)]' : ''}>
+        <div className={topGroup.length === 0 ? 'mx-auto max-w-full lg:max-w-[calc(66.666%+1rem)] lg:-translate-x-8' : ''}>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12">
             Projects
           </h2>
