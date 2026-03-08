@@ -15,7 +15,7 @@ const basename = window.location.pathname.startsWith("/PersonalPortfolio")
   : "";
 
 const App = () => (
-  <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+  <ThemeProvider attribute="class" defaultTheme="system" enableSystem={true}>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <ThemeToggle />
