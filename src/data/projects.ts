@@ -34,40 +34,40 @@ export const projects: Project[] = [
     description: "Transforming ideas into reality",
     tags: ["React", "Firebase", "Redux"],
   },
-  {
-    id: "project-four",
-    title: "Project Four",
-    description: "Building seamless user experiences",
-    tags: ["Vue.js", "GraphQL", "AWS"],
-  },
-  {
-    id: "project-five",
-    title: "Project Five",
-    description: "Creating innovative digital solutions",
-    tags: ["Angular", "Python", "Docker"],
-  },
-  {
-    id: "project-six",
-    title: "Project Six",
-    description: "Developing cutting-edge applications",
-    tags: ["Svelte", "Go", "Kubernetes"],
-  },
-  {
-    id: "project-seven",
-    title: "Project Seven",
-    description: "Optimizing performance at scale",
-    tags: ["React", "Ruby", "Redis"],
-  },
-  {
-    id: "project-eight",
-    title: "Project Eight",
-    description: "Engineering reliable systems",
-    tags: ["Java", "Spring", "PostgreSQL"],
-  },
-  {
-    id: "project-nine",
-    title: "Project Nine",
-    description: "Crafting delightful interfaces",
-    tags: ["Flutter", "Dart", "Firebase"],
-  }
+  // {
+  //   id: "project-four",
+  //   title: "Project Four",
+  //   description: "Building seamless user experiences",
+  //   tags: ["Vue.js", "GraphQL", "AWS"],
+  // },
+  // {
+  //   id: "project-five",
+  //   title: "Project Five",
+  //   description: "Creating innovative digital solutions",
+  //   tags: ["Angular", "Python", "Docker"],
+  // },
+  // {
+  //   id: "project-six",
+  //   title: "Project Six",
+  //   description: "Developing cutting-edge applications",
+  //   tags: ["Svelte", "Go", "Kubernetes"],
+  // },
+  // {
+  //   id: "project-seven",
+  //   title: "Project Seven",
+  //   description: "Optimizing performance at scale",
+  //   tags: ["React", "Ruby", "Redis"],
+  // },
+  // {
+  //   id: "project-eight",
+  //   title: "Project Eight",
+  //   description: "Engineering reliable systems",
+  //   tags: ["Java", "Spring", "PostgreSQL"],
+  // },
+  // {
+  //   id: "project-nine",
+  //   title: "Project Nine",
+  //   description: "Crafting delightful interfaces",
+  //   tags: ["Flutter", "Dart", "Firebase"],
+  // }
 ];
