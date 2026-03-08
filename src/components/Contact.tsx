@@ -27,7 +27,7 @@ export const Contact = () => {
               <Mail size={24} />
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/IvanL-works"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
