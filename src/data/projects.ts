@@ -63,24 +63,6 @@ export const projects: Project[] = [
     repo: "https://github.com/Lukfruit/Firefox-Youtube-Tab-counter",
   },
 
-  // ---------- Portfolio Website ----------
-  {
-    id: "portfolio-website",
-    title: "Portfolio Website",
-    description: "A responsive personal portfolio built with React, TypeScript, and Tailwind CSS — featuring dark mode, animated transitions, and a modular project showcase system.",
-    detailedDescription: `A modern developer portfolio designed and built from scratch using React and TypeScript with Tailwind CSS for styling. Features include a theme toggle with smooth dark/light mode transitions, Framer Motion animations, and a dynamic project card system with detailed modal views.
-
-    The site uses a clean component architecture with centralized data configuration, making it easy to add or update projects without touching component code. Fully responsive across all screen sizes.`,
-    challengesSolutions: [
-      {
-        challenge: "Creating a cohesive design system that works seamlessly in both light and dark modes while keeping the codebase maintainable and easy to extend with new projects.",
-        solution: "Leveraged Tailwind CSS semantic tokens and CSS variables for theming, combined with a data-driven architecture where all project content lives in a single configuration file.",
-      },
-    ],
-    tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    repo: "https://github.com/Lukfruit/PersonalPortfolio",
-  },
-
   // ---------- LinguaWeb ----------
   {
     id: "linguaweb",
@@ -110,6 +92,24 @@ export const projects: Project[] = [
       },
     ],
     tags: ["SwiftUI", "SQLite", "Gemini API", "Apple Vision", "Apple NLP", "SM-2 SRS", "MVVM", "iOS 26+"],
+  },
+
+  // ---------- Portfolio Website ----------
+  {
+    id: "portfolio-website",
+    title: "Portfolio Website",
+    description: "A responsive personal portfolio built with React, TypeScript, and Tailwind CSS — featuring dark mode, animated transitions, and a modular project showcase system.",
+    detailedDescription: `A modern developer portfolio designed and built from scratch using React and TypeScript with Tailwind CSS for styling. Features include a theme toggle with smooth dark/light mode transitions, Framer Motion animations, and a dynamic project card system with detailed modal views.
+
+    The site uses a clean component architecture with centralized data configuration, making it easy to add or update projects without touching component code. Fully responsive across all screen sizes.`,
+    challengesSolutions: [
+      {
+        challenge: "Creating a cohesive design system that works seamlessly in both light and dark modes while keeping the codebase maintainable and easy to extend with new projects.",
+        solution: "Leveraged Tailwind CSS semantic tokens and CSS variables for theming, combined with a data-driven architecture where all project content lives in a single configuration file.",
+      },
+    ],
+    tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    repo: "https://github.com/Lukfruit/PersonalPortfolio",
   },
 
   // ---------- Project Five ----------
