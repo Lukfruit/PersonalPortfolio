@@ -55,7 +55,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               } ${isFat ? 'row-span-2' : 'row-span-1'}`}
             >
               <span
-                className={`px-3 bg-secondary text-primary text-sm rounded-full mx-1 inline-block text-center ${isFat ? 'py-2' : 'py-0.5'}`}
+                className={`px-3 py-1 bg-secondary text-primary text-sm rounded-full mx-1 inline-block text-center`}
                 style={{ width: maxWidth }}
               >
                 {tag}
