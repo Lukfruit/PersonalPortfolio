@@ -48,7 +48,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
             {project.tags.map(tag => (
               <span
                 key={tag}
-                className="px-3 py-1 bg-secondary border border-primary/30 text-primary text-sm rounded-full"
+                className="px-3 py-1 bg-secondary/90 backdrop-blur-sm border border-primary/30 text-primary text-sm rounded-full"
               >
                 {tag}
               </span>
