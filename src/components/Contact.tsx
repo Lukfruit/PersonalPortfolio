@@ -21,7 +21,7 @@ export const Contact = () => {
           </p>
           <div className="flex justify-center gap-8">
             <a
-              href="mailto:your.email@example.com"
+              href="mailto:ilukin@me.com"
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Mail size={24} />
