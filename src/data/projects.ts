@@ -75,8 +75,20 @@ export const projects: Project[] = [
     A scientifically-grounded spaced repetition system (SM-2 with ease factor integration) tracks each word's history across 8 proficiency levels, surfacing the right words at the right time through a dynamic 30-word focus queue.
     
     The app also generates personalised reading comprehension texts calibrated to the user's known vocabulary, and includes an offline 10,000+ word NIKL Korean-English dictionary with camera OCR for real-world sentence mining.`,
-    challenges: "Korean is agglutinative — the same root can appear in dozens of forms. Early AI-generated reading texts had high rejection rates due to no visibility into user vocabulary. The app was initially tightly coupled to a single AI provider. Simple success/failure SRS tracking was gameable.",
-    solutions: "Used Gemini's LLM morphological analysis with Apple NLP as fallback for inflection-agnostic word detection. Implemented structured generation passing known vocabulary as a palette. Designed a Model Abstraction Layer with provider-agnostic protocol for swapping models. Built an encounters system with rolling 10-interaction history distinguishing genuine recall from lookups (0.5× XP).",
+    challenges: `Morphological complexity of Korean — Korean is an agglutinative language; the same word root can appear in dozens of forms, making vocabulary detection from free-form sentences extremely difficult.
+
+    AI text generation quality — Early reading texts had high validation rejection rates because the model had no visibility into what the user actually knew, leading to excessive retry loops.
+
+    Provider flexibility — The app started tightly coupled to Gemini, making it impossible to swap or test alternative models without rewriting business logic.
+
+    Anti-gaming the SRS — Simple success/failure tracking is gameable; users could artificially inflate their scores without genuine recall.`,
+    solutions: `Used Gemini's LLM-based morphological analysis as the primary word detector, with Apple's NLP framework as a fallback, enabling detection of any vocabulary word regardless of inflection.
+
+    Implemented structured generation: passing the user's full known vocabulary as a palette and instructing the model to construct text primarily from it, dramatically reducing retry loops and improving naturalness (in progress).
+
+    Designed a Model Abstraction Layer (MAL) with a provider-agnostic protocol and per-feature adapter pattern, allowing swapping or A/B testing models (e.g. Qwen, DeepSeek) without touching business logic.
+
+    Built an encounters system that maintains a rolling 10-interaction history string, distinguishing genuine recall from lookups (which award only 0.5× XP), giving a more honest signal to the spaced repetition algorithm.`,
     tags: ["SwiftUI", "SQLite", "Gemini API", "Apple Vision", "SM-2 SRS"],
   },
 
