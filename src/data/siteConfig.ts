@@ -11,9 +11,8 @@ export const siteConfig = {
 
   // ---------- About Section ----------
   about: [
-    "I build small systems that turn messy data into insight. I'm interested in how information can describe the way people learn, watch, and buy things.",
-    "My work spans analyzing retail datasets, aggregating YouTube behavior, and tracking study patterns in language learning.",
-    "Beyond personal projects, I maintain structured documentation and build widgets for the Guild Wars 2 Wiki."
+    "I'm interested in systems that turn messy information into something understandable. Most of my projects explore patterns in human behavior through data — how people learn, watch, buy, and move through the world.",
+    "Outside of personal projects, I contribute to the Guild Wars 2 Wiki, helping maintain structured documentation and building small tools for the site."
   ],
 
   // ---------- Contact / Social Links ----------
