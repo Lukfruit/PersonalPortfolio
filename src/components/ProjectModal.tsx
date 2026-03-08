@@ -119,35 +119,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
               </p>
             </div>
           )}
-
-          {(project.repo || project.link) && (
-            <div className="flex gap-3 pt-2">
-              {project.repo && (
-                <a
-                  href={project.repo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <Github className="w-4 h-4" />
-                  View on GitHub
-                </a>
-              )}
-              {project.link && (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-secondary text-foreground rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Live Demo
-                </a>
-              )}
-            </div>
-          )}
         </div>
       </DialogContent>
     </Dialog>
