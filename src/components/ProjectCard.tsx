@@ -16,11 +16,13 @@ interface TagLayout {
   colSpan: number;
 }
 
+const LONG_TAG_THRESHOLD = 11;
+
 function computeTagLayout(tags: string[]): TagLayout[] {
   const longTags: string[] = [];
   const shortTags: string[] = [];
   tags.forEach(tag => {
-    if (tag.length >= 11) longTags.push(tag);
+    if (tag.length >= LONG_TAG_THRESHOLD) longTags.push(tag);
     else shortTags.push(tag);
   });
 
@@ -65,7 +67,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   onClick,
 }) => {
   const getMaxTagWidth = (tags: string[]) => {
-    const shortTags = tags.filter(t => t.length < 11);
+    const shortTags = tags.filter(t => t.length < LONG_TAG_THRESHOLD);
     if (shortTags.length === 0) return "4rem";
     const maxLength = Math.max(...shortTags.map(tag => tag.length));
     return `${maxLength * 0.7 + 2}rem`;
