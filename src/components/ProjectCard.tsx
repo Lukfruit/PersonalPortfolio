@@ -16,11 +16,13 @@ interface TagLayout {
   colSpan: number;
 }
 
+const LONG_TAG_THRESHOLD = 11;
+
 function computeTagLayout(tags: string[]): TagLayout[] {
   const longTags: string[] = [];
   const shortTags: string[] = [];
   tags.forEach(tag => {
-    if (tag.length >= 11) longTags.push(tag);
+    if (tag.length >= LONG_TAG_THRESHOLD) longTags.push(tag);
     else shortTags.push(tag);
   });
 
