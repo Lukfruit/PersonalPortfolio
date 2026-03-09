@@ -6,7 +6,7 @@ export const About = () => {
   return (
     <section className="py-20 bg-section-warm">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:gap-16 max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row md:gap-16">
           {/* Mobile heading */}
           <h2 className="text-4xl font-bold text-foreground mb-8 md:hidden">
             About Me
