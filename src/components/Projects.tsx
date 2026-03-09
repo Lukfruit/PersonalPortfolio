@@ -47,7 +47,7 @@ export const Projects = () => {
 
           <div className="flex-1">
             {topGroup.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {topGroup.map((project, index) => (
                   <ProjectCard
                     key={project.id}
@@ -59,7 +59,7 @@ export const Projects = () => {
               </div>
             )}
             {bottomGroup.length > 0 && (
-              <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto max-w-full xl:max-w-[calc(66.666%+1rem)] ${topGroup.length > 0 ? 'mt-8' : ''}`}>
+              <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 ${topGroup.length > 0 ? 'mt-8' : ''}`}>
                 {bottomGroup.map((project, index) => (
                   <ProjectCard
                     key={project.id}
