@@ -26,7 +26,7 @@ export const Projects = () => {
   return (
     <section className="py-20">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row md:gap-16">
+        <div className="flex flex-col md:flex-row md:gap-16 max-w-5xl mx-auto">
           {/* Mobile heading */}
           <h2 className="text-4xl font-bold text-foreground mb-12 md:hidden pl-6">
             Projects
