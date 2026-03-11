@@ -19,6 +19,7 @@ export interface Project {
   tags: string[];
   link?: string;
   repo?: string;
+  firefoxAddon?: string;
   visible?: boolean;
 }
 
@@ -61,6 +62,7 @@ export const projects: Project[] = [
     ],
     tags: ["JavaScript", "HTML", "CSS"],
     repo: "https://github.com/Lukfruit/Firefox-Youtube-Tab-counter",
+    firefoxAddon: "https://addons.mozilla.org/en-US/firefox/addon/video-tab-analyzer/",
   },
 
   // ---------- LinguaWeb ----------

@@ -16,6 +16,7 @@ interface Project {
   challengesSolutions?: ChallengeSolution[];
   repo?: string;
   link?: string;
+  firefoxAddon?: string;
 }
 
 interface ProjectModalProps {
@@ -63,7 +64,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
             {project.description}
           </p>
 
-          {(project.repo || project.link) && (
+          {(project.repo || project.link || project.firefoxAddon) && (
             <div className="flex gap-3">
               {project.repo && (
                 <a
@@ -75,6 +76,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
                 >
                   <Github className="w-4 h-4" />
                   GitHub
+                </a>
+              )}
+              {project.firefoxAddon && (
+                <a
+                  href={project.firefoxAddon}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 border border-border text-foreground rounded-lg hover:bg-accent transition-colors text-sm font-medium"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <svg className="w-4 h-4" viewBox="0 0 77.42 79.97" fill="currentColor">
+                    <path d="M74.68 17.88c-1.8-4.36-5.46-9.04-8.29-10.48a41.19 41.19 0 0 1 5.43 13.37l.01.06c-6.22-15.52-16.77-21.78-25.58-35.42-.45-.7-.9-1.4-1.33-2.16a8.82 8.82 0 0 1-.59-1.27.26.26 0 0 0-.04-.06.22.22 0 0 0-.2.04v.02c-9.67 5.66-12.95 16.14-13.25 21.39a19.3 19.3 0 0 0-10.63 4.23 11.52 11.52 0 0 0-1-.76 17.74 17.74 0 0 1-.1-9.34 28.68 28.68 0 0 0-9.34 7.18h-.02C7.7 2.18 8.68.06 8.5 0a36.14 36.14 0 0 0-5.17 7.74l-.03.07A42.94 42.94 0 0 0 .53 16.2l-.06.22a44.26 44.26 0 0 0-.4 4.34v.07c0 .17-.01.34-.02.52A38.8 38.8 0 0 0 38.8 59.97a38.8 38.8 0 0 0 37.8-30.15c.07-.3.13-.6.19-.91a47.6 47.6 0 0 0-2.11-10.99v-.04Z"/>
+                  </svg>
+                  Firefox Add-on
                 </a>
               )}
               {project.link && (
