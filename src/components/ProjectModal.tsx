@@ -1,6 +1,7 @@
 import React from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Github, ExternalLink } from "lucide-react";
+import firefoxIcon from "@/assets/firefox-icon.svg";
 
 interface ChallengeSolution {
   challenge: string;
@@ -86,9 +87,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
                   className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity text-sm font-medium"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M21.634 8.583a6.753 6.753 0 0 0-.925-1.873 7.862 7.862 0 0 0-1.532-1.605 10.028 10.028 0 0 0-1.07-.724c-.29.55-.6 1.075-.93 1.574A10.18 10.18 0 0 1 15.6 7.8a5.2 5.2 0 0 0-1.32-1.057 5.2 5.2 0 0 0-.765-.378c.068.503.09 1.01.068 1.517a6.124 6.124 0 0 1-.443 2.07 5.888 5.888 0 0 1-1.2 1.852 5.646 5.646 0 0 1-1.834 1.305 5.898 5.898 0 0 1-2.25.596 5.694 5.694 0 0 1-1.14-.027 5.674 5.674 0 0 1-1.098-.27c.396.858.963 1.623 1.665 2.246a6.2 6.2 0 0 0 2.506 1.32 6.882 6.882 0 0 0 2.83.124 7.468 7.468 0 0 0 2.679-1.013 8.074 8.074 0 0 0 2.123-1.953 8.764 8.764 0 0 0 1.376-2.692 9.187 9.187 0 0 0 .463-3.053c-.002-.276-.019-.55-.05-.822l-.001-.005zM12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z"/>
-                  </svg>
+                  <img src={firefoxIcon} alt="Firefox" className="w-4 h-4" />
                   Firefox Add-on
                 </a>
               )}
