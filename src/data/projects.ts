@@ -19,6 +19,7 @@ export interface Project {
   tags: string[];
   link?: string;
   repo?: string;
+  firefoxAddon?: string;
   visible?: boolean;
 }
 
