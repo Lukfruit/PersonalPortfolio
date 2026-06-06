@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { projects } from "../data/projects";
+import { ScreenshotReel } from "../components/ScreenshotReel";
 
 const ProjectDetail = () => {
   const { id } = useParams();
