@@ -92,6 +92,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
           )}
         </div>
 
+        {/* Screenshot reel */}
+        {project.screenshots && project.screenshots.length > 0 && (
+          <div className="px-8 pt-2 pb-4 bg-background">
+            <ScreenshotReel screenshots={project.screenshots} />
+          </div>
+        )}
+
         {/* Content section */}
         <div className="bg-accent p-8 space-y-6">
           {project.detailedDescription && (
