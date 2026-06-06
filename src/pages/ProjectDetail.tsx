@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { projects } from "../data/projects";
+import { ScreenshotReel } from "../components/ScreenshotReel";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -84,6 +85,9 @@ const ProjectDetail = () => {
 
         <div className="relative z-10">
           <section className="space-y-8 bg-white/40 backdrop-blur-sm rounded-2xl p-8 shadow-lg max-w-4xl mx-auto">
+            {project.screenshots && project.screenshots.length > 0 && (
+              <ScreenshotReel screenshots={project.screenshots} />
+            )}
             {project.detailedDescription && (
               <div>
                 <h2 className="text-4xl font-semibold mb-6 text-soft-text">Overview</h2>

@@ -2,23 +2,8 @@ import React from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Github, ExternalLink } from "lucide-react";
 import firefoxIcon from "@/assets/firefox-icon.svg";
-
-interface ChallengeSolution {
-  challenge: string;
-  solution: string;
-}
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  tags: string[];
-  detailedDescription?: string;
-  challengesSolutions?: ChallengeSolution[];
-  repo?: string;
-  link?: string;
-  firefoxAddon?: string;
-}
+import { ScreenshotReel } from "./ScreenshotReel";
+import type { Project } from "@/data/projects";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -106,6 +91,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onC
             </div>
           )}
         </div>
+
+        {/* Screenshot reel */}
+        {project.screenshots && project.screenshots.length > 0 && (
+          <div className="px-8 pt-2 pb-4 bg-background">
+            <ScreenshotReel screenshots={project.screenshots} />
+          </div>
+        )}
 
         {/* Content section */}
         <div className="bg-accent p-8 space-y-6">

@@ -1,13 +1,26 @@
 // ============================================
-// PROJECTS CONFIGURATION
-// Edit this file to add, remove, or update projects.
-// To hide a project, set visible: false.
-// To add a new project, copy a block and fill in the fields.
+// PROJECTS CONFIGURATION (BASE / FALLBACK)
+// ============================================
+// This file lists every project the site knows about and provides
+// fallback values. To add screenshots, descriptions, or override any
+// field, drop files into `src/assets/projects/<id>/`:
+//
+//   src/assets/projects/<id>/manifest.json   (optional overrides)
+//   src/assets/projects/<id>/*.png|jpg|...   (screenshots, auto-picked)
+//
+// The merged result is exported from `src/data/loadProjects.ts` as
+// `projects`. Importers should pull from there — this file re-exports it
+// for backwards compatibility.
 // ============================================
 
 export interface ChallengeSolution {
   challenge: string;
   solution: string;
+}
+
+export interface Screenshot {
+  src: string;
+  label: string;
 }
 
 export interface Project {
@@ -21,9 +34,10 @@ export interface Project {
   repo?: string;
   firefoxAddon?: string;
   visible?: boolean;
+  screenshots?: Screenshot[];
 }
 
-export const projects: Project[] = [
+export const baseProjects: Project[] = [
   // ---------- H&M Data Analytics ----------
   {
     id: "hm-data-project",
@@ -132,3 +146,7 @@ export const projects: Project[] = [
     visible: false,
   },
 ];
+
+// Re-export the merged list so existing `import { projects } from "@/data/projects"`
+// keeps working.
+export { projects } from "./loadProjects";
