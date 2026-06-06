@@ -1,46 +1,85 @@
+## Goal
 
+Each project gets a horizontal scrolling screenshot strip in its modal, placed between the description and the Overview section. Screenshots are auto-discovered from a folder, labeled by filename (or overridden via `manifest.json`), and the manifest can also hold the textual content currently hardcoded in `projects.ts`.
 
-## Problem
+## Folder layout
 
-On GitHub Pages, the URL is `lukfruit.github.io/teal-parallax-portfolio/`. React Router's `BrowserRouter` without a `basename` expects routes at `/`, so the path `/teal-parallax-portfolio/` matches nothing. The `ThemeToggle` is outside the router, which is why it still appears.
-
-## Fix
-
-**`src/App.tsx`** — Add a conditional `basename` to `BrowserRouter`:
-
-```tsx
-<BrowserRouter basename="/teal-parallax-portfolio">
+```text
+src/assets/projects/
+  hm-data-project/
+    manifest.json
+    01-clusters.png
+    02-revenue-share.png
+  youtube-tab-analyser/
+    manifest.json
+    popup.png
+  linguaweb/
+    ...
 ```
 
-But to avoid breaking the Lovable preview (where paths start at `/`), we need to detect the environment. Since `vite.config.ts` already sets `base` conditionally using `GITHUB_ACTIONS`, we can use the same approach with a Vite env variable:
+The folder name matches the project `id` already used in `projects.ts`.
 
-**`vite.config.ts`** — Pass the base path as a define:
+## manifest.json shape
+
+All fields optional — anything omitted falls back to the value in `projects.ts` (or, for screenshots, to a label derived from the filename: `01-revenue-share.png` → `Revenue Share`).
+
+```json
+{
+  "title": "H&M Data Analytics",
+  "description": "Short card description...",
+  "detailedDescription": "Multi-paragraph overview...",
+  "challengesSolutions": [
+    { "challenge": "...", "solution": "..." }
+  ],
+  "tags": ["Python", "Pandas"],
+  "repo": "https://github.com/...",
+  "link": "...",
+  "firefoxAddon": "...",
+  "screenshots": [
+    { "file": "01-clusters.png", "label": "Customer Clusters" },
+    { "file": "02-revenue-share.png" }
+  ]
+}
+```
+
+If `screenshots` is omitted, every image in the folder is included in alphabetical order with auto-derived labels. If `screenshots` is present, only listed files appear, in that order.
+
+## Auto-discovery (Vite)
+
+Use `import.meta.glob` to pull in every image and every manifest at build time, with no manual imports:
+
 ```ts
-define: {
-  __BASE_PATH__: JSON.stringify(isGHPages ? "/teal-parallax-portfolio" : ""),
-},
+const images = import.meta.glob(
+  "@/assets/projects/*/*.{png,jpg,jpeg,webp,svg}",
+  { eager: true, query: "?url", import: "default" }
+);
+const manifests = import.meta.glob(
+  "@/assets/projects/*/manifest.json",
+  { eager: true, import: "default" }
+);
 ```
 
-**`src/App.tsx`** — Use it:
-```tsx
-<BrowserRouter basename={(window as any).__BASE_PATH__ || ""}>
-```
+A new `src/data/loadProjects.ts` merges these with the base array in `projects.ts` (kept as fallback / source of truth for ordering and visibility) and exports the final `projects` list with a `screenshots: { src, label }[]` field added.
 
-Actually, a simpler approach: detect at runtime whether the URL starts with `/teal-parallax-portfolio`:
+Adding a new project later = create the folder, drop a `manifest.json`, drop screenshots. No code changes.
 
-**`src/App.tsx`** only:
-```tsx
-const basename = window.location.pathname.startsWith("/teal-parallax-portfolio")
-  ? "/teal-parallax-portfolio"
-  : "";
+## UI changes
 
-// Then:
-<BrowserRouter basename={basename}>
-```
+**New component** `src/components/ScreenshotReel.tsx`:
+- Horizontal scrolling strip (`overflow-x-auto`, snap points, hidden scrollbar).
+- Each item: image in a fixed-height card with caption label beneath.
+- Click image → opens shadcn `Dialog` lightbox showing full image + label.
+- Hidden entirely when a project has zero screenshots.
 
-This requires zero build config changes and works in both Lovable preview and GitHub Pages.
+**`ProjectModal.tsx`**: insert `<ScreenshotReel screenshots={project.screenshots} />` after the short description block and before the Overview / detailedDescription section. No other layout changes.
 
-## Summary
+## Files touched
 
-One small change to `src/App.tsx` — detect the base path at runtime so React Router matches routes correctly on GitHub Pages while keeping the Lovable preview working.
+- new: `src/assets/projects/<id>/manifest.json` (one starter manifest per existing visible project, copying current text so nothing regresses)
+- new: `src/data/loadProjects.ts`
+- new: `src/components/ScreenshotReel.tsx`
+- edit: `src/data/projects.ts` — keep as the base list (id, visible, fallback fields); re-export via `loadProjects.ts` so existing imports keep working
+- edit: `src/components/ProjectModal.tsx` — render the reel in the new slot
+- edit: `src/components/Projects.tsx` and `src/pages/ProjectDetail.tsx` if they import directly from `projects.ts` — switch to the merged loader
 
+No screenshots are added in this pass — the reels will simply be hidden until you drop images into the folders.
